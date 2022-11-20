@@ -1,0 +1,63 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Management System</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Doctors</h1>
+    <hr>
+    <h2>add doctor</h2>
+
+    <form action="#" th:action="@{/save/doctor}" th:object="${User}"
+          method="POST">
+        <input type="text" th:field="*{id}" placeholder="User email"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{password}" placeholder="password"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{name}" placeholder="User name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{surname}" placeholder="User surname" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{salary}" placeholder="User salary" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{phone}" placeholder="User phone" class="form-control mb-4 col-4">
+        <div th:field="*{cname}">
+            <select class="form-control" id="cname" name="cname">
+                <option value="">Select your country</option>
+                <div class="col-sm-3" th:object="${Countries}">
+                    <option th:each="c : ${Countries}"
+                            th:value="${c.getId()}"
+                            th:text="${c.getId()}"></option>
+                </div>
+            </select>
+        </div>
+        <br>
+        <div th:object="${Doctor}">
+            <input type="text" th:field="*{degree}" placeholder="User degree" class="form-control mb-4 col-4">
+        </div>
+        <div th:object="${returnDis}">
+            <div th:field="*{type}">
+            <select class="form-control" id="type" name="type">
+            <option value="">Select Disease you specialize in</option>
+            <div class="col-sm-3" th:object="${Diseases}">
+                <option th:each="d : ${Diseases}"
+                        th:value="${d.getDiseaseCode()}"
+                        th:text="${d.getDiseaseCode()}"></option>
+            </div>
+        </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info col-2">Save Doctor</button>
+    </form>
+
+    <hr>
+    <form action="/" >
+        <button type="submit" class="btn btn-primary">Main Page</button>
+    </form>
+</div>
+
+</body>
+</html>

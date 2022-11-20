@@ -1,0 +1,38 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Management System</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Users</h1>
+    <hr>
+    <h2>modify user</h2>
+    <form action="#" th:action="@{/save/publicservant}" th:object="${User}"
+          method="POST">
+        <br>
+        <h5 th:text="${'email: ' + id}"></h5>
+        <br>
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{surname}"  class="form-control mb-4 col-4">
+        <input type="text" th:field="*{salary}"  class="form-control mb-4 col-4">
+        <input type="text" th:field="*{phone}"  class="form-control mb-4 col-4">
+        <input type="text" th:field="*{cname}"  class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Save
+            Employee</button>
+    </form>
+
+    <hr>
+    <form action="/" >
+        <button type="submit" class="btn btn-primary">Main Page</button>
+    </form>
+</div>
+
+</body>
+</html>

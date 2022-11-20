@@ -1,0 +1,49 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Modify</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Update Public Servant</h1>
+
+
+    <form action="#" th:action="@{/save/publicservant}" th:object="${User}"
+          method="POST">
+        <br>
+        <h5 th:text="${'email: ' + id}"></h5>
+        <br>
+        <input type="text" th:field="*{password}" placeholder="password"
+               class="form-control mb-4 col-4">
+        <input type="text" th:field="*{name}" placeholder="name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{surname}" placeholder="surname" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{salary}" placeholder="salary" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{phone}" placeholder="phone" class="form-control mb-4 col-4">
+
+            <select class="form-control" id="cname" name="cname" th:default="${cname}">
+                <div class="col-sm-3" th:object="${Countries}">
+                    <option th:each="c : ${Countries}"
+                            th:value="${c.getId()}"
+                            th:text="${c.getId()}"></option>
+                </div>
+            </select>
+            <br>
+        <div th:object="${PublicServant}">
+            <input type="text" th:value="${PublicServant.department}" name="department" id="department" class="form-control mb-4 col-4">
+        </div>
+
+        <button type="submit" class="btn btn-info col-2">Update information</button>
+    </form>
+    <hr>
+    <form action="/see/users" >
+        <button type="submit" class="btn btn-primary">See users</button>
+    </form>
+</div>
+
+</body>
+</html>
