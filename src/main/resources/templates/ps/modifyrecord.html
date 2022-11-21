@@ -14,13 +14,13 @@
     <h1>Record update</h1>
     <form action="#" th:action="@{/save/record}" th:object="${Record}"
           method="POST">
-            <h6 th:text="${'Country: '+cname}"></h6>
+        <h6 th:text="${'Country: '+cname}"></h6>
             <br>
-            <input type="hidden" th:field="${cname}">
+        <input type="hidden" th:field="*{cname}" th:value="${cname}">
 
-            <h6 th:text="${'Disease: '+diseaseCode}"></h6>
+        <h6 th:text="${'Disease: '+diseaseCode}"></h6>
 
-        <input type="hidden" th:field="${diseaseCode}">
+        <input type="hidden" th:field="*{diseaseCode}" th:value="${diseaseCode}">
         <br>
         <input type="number" th:field="*{totalDeaths}" placeholder="Total Deaths"  class="form-control mb-4 col-4">
         <input type="number" th:field="*{totalPatients}" placeholder="Total Patients" class="form-control mb-4 col-4">

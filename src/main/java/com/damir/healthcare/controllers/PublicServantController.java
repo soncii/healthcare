@@ -52,4 +52,16 @@ public class  PublicServantController {
         model.addAttribute("countries",countryRepository.findAllByOrderByIdAsc());
         return "ps/modifyrecord";
     }
+    @PostMapping("/delete/record/{email}/{cname}/{diseaseCode}")
+    public String deleteRecord(@PathVariable("email") String email,
+                               @PathVariable("cname") String cname,
+                               @PathVariable("diseaseCode") String diseaseCode,
+                               Model model) {
+        RecordID ID = new RecordID();
+        ID.setCname(cname);
+        ID.setEmail(email);
+        ID.setDiseaseCode(diseaseCode);
+        recordRepository.deleteById(ID);
+        return "redirect:/records";
+    }
 }
