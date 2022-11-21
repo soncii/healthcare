@@ -38,7 +38,7 @@
                 <form  action="#" th:action="@{'/modify/record/' + ${r.getEmail()} +'/'+${r.getCname()} +'/'+ ${r.getDiseaseCode()}}" method="GET" >
                     <button type="submit" class="btn btn-primary">Modify</button>
                 </form>
-                <form  action="#" th:action="@{'/delete/user/' + ${r.getEmail()} +${r.getCname()} + ${r.getDiseaseCode()}}" method="POST" >
+                <form  action="#" th:action="@{'/delete/user/' + ${r.getEmail()} +'/'+${r.getCname()} +'/'+ ${r.getDiseaseCode()}}" method="POST" >
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
