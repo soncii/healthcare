@@ -120,7 +120,8 @@ public class AuthController {
         System.out.println(user.getId()+" "+user.getName()+" "+user.getSurname());
         ps.setEmail(user.getId());
         userRepository.save(user);
-        auGroupRepository.save(new AuGroup(user.getId(),"PUBLICSERVANT"));
+        AuGroup augroup = new AuGroup(user.getId(), "PUBLICSERVANT");
+        if (!auGroupRepository.findById(user.getId()).isPresent())        auGroupRepository.save(augroup);
         publicServantRepository.save(ps);
         return "redirect:/";
     }

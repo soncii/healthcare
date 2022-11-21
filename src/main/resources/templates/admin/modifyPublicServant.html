@@ -18,6 +18,7 @@
         <br>
         <h5 th:text="${'email: ' + id}"></h5>
         <br>
+        <input type="hidden" th:field="*{id}">
         <input type="text" th:field="*{password}" placeholder="password"
                class="form-control mb-4 col-4">
         <input type="text" th:field="*{name}" placeholder="name" class="form-control mb-4 col-4">
