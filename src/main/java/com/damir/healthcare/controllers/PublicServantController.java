@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_PUBLICSERVANT','ROLE_ADMIN')")
-public class PublicServantController {
+public class  PublicServantController {
     @Autowired
     RecordRepository recordRepository;
     @Autowired

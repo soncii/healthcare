@@ -32,7 +32,7 @@
         <td th:text="${r.getDiseaseCode()}"></td>
         <td th:text="${r.getTotalDeaths()}"></td>
         <td th:text="${r.getTotalPatients()}"></td>
-        <td th:text="${#numbers.formatDecimal(r.totalDeaths.doubleValue()/r.totalPatients.doubleValue()*100,2,2)+'%'}"></td>
+        <td th:text="${#numbers.formatDecimal(r.totalDeaths.doubleValue()/r.totalPatients.doubleValue()*100,1,2)+'%'}"></td>
         <td th:if="${r.getEmail()} eq ${id}">
             <div class="btn-group">
                 <form  action="#" th:action="@{'/modify/record/' + ${r.getEmail()} +'/'+${r.getCname()} +'/'+ ${r.getDiseaseCode()}}" method="GET" >

@@ -91,7 +91,7 @@ public class DoctorController {
     @PostMapping("/delete/disease/{id}")
     public String deleteDisease(@PathVariable("id") String diseaseCode, Model model) {
         if (diseaseRepository.findById(diseaseCode).isPresent()) diseaseRepository.deleteById(diseaseCode);
-        return "redirect:/see/countries";
+        return "redirect:/see/diseases";
     }
 
     //    @PostMapping("/modify/disease/{id}")
