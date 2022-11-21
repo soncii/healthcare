@@ -49,7 +49,7 @@
 </table>
 
         <div class="btn-group">
-            <div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_PUBLICSERVANT')">
+            <div sec:authorize="hasAnyRole('ROLE_PUBLICSERVANT')">
         <form action="/add/record" method="get">
             <button type = "submit" class="btn-lg btn-primary">Add record</button>
         </form>
