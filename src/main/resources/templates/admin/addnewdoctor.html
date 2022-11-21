@@ -44,8 +44,8 @@
             <option value="">Select Disease you specialize in</option>
             <div class="col-sm-3" th:object="${Diseases}">
                 <option th:each="d : ${Diseases}"
-                        th:value="${d.getDiseaseCode()}"
-                        th:text="${d.getDiseaseCode()}"></option>
+                        th:value="${d.diseaseCode}"
+                        th:text="${d.diseaseCode}"></option>
             </div>
         </select>
             </div>
