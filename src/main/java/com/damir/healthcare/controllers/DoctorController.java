@@ -5,6 +5,7 @@ import com.damir.healthcare.entities.*;
 import com.damir.healthcare.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelExtensionsKt;
@@ -132,4 +133,10 @@ public class DoctorController {
         discoveryRepository.deleteById(new DiscoverID(cname,disCode));
         return "redirect:/see/discovered";
     }
+    @PostMapping("/delete/discovered/{id}")
+    public String deleteType(@PathVariable("id") Integer id) {
+        diseaseTypeRepository.deleteById(id);
+        return "redirect:/see/discovered";
+    }
+
 }
