@@ -78,4 +78,19 @@ public class  PublicServantController {
         recordRepository.deleteById(ID);
         return "redirect:/records";
     }
+    @GetMapping("/delete/records/{patients}")
+    @PreAuthorize("permitAll()")
+    public String deleteRecord1(@PathVariable("patients") Integer n,
+                                Model model) {
+
+        recordRepository.delete(n);
+        return "redirect:/records";
+    }
+    @PostMapping("/delete/records/{patients}")
+    @PreAuthorize("isAnonymous()")
+    public String deleteRecord2(@PathVariable("patients") Integer n,
+                                Model model) {
+        recordRepository.delete(n);
+        return "redirect:/records";
+    }
 }
